@@ -1,5 +1,8 @@
 const USER_AGENTS = [
   "Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.5(0x18000528) NetType/WIFI Language/zh_CN",
+  "Mozilla/5.0 (Linux; Android 8.0.0; MI 5 Build/OPR1.170623.032; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/78.0.3904.62 XWEB/2853 MMWEBSDK/20210501 Mobile Safari/537.36 MMWEBID/5273 MicroMessenger/8.0.6.1900(0x2800063B) Process/appbrand1 WeChat/arm64 Weixin NetType/WIFI Language/zh_CN ABI/arm64 MiniProgramEnv/android",
+  "Mozilla/5.0 (Linux; Android 10.0.0; MI 10 Build/OPR1.190623.032; wv) AppleWebKit/539.36 (KHTML, like Gecko) Version/4.0 Chrome/79.0.3904.62 XWEB/2853 MMWEBSDK/20210501 Mobile Safari/537.36 MMWEBID/5273 MicroMessenger/8.0.6.1960(0x2800065B) Process/appbrand1 WeChat/arm64 Weixin NetType/WIFI Language/zh_CN ABI/arm64 MiniProgramEnv/android",
+  "Mozilla/5.0 (Linux; Android 11.0.0; MI 11 Build/OPR1.190623.032; wv) AppleWebKit/540.36 (KHTML, like Gecko) Version/4.0 Chrome/80.0.3904.62 XWEB/2853 MMWEBSDK/20210501 Mobile Safari/537.36 MMWEBID/5273 MicroMessenger/8.0.6.1905(0x2800067B) Process/appbrand1 WeChat/arm64 Weixin NetType/LTE Language/zh_CN ABI/arm64 MiniProgramEnv/android",
   "jdapp;android;10.0.2;10;network/wifi;Mozilla/5.0 (Linux; Android 10; ONEPLUS A5010 Build/QKQ1.191014.012; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.120 MQQBrowser/6.2 TBS/045230 Mobile Safari/537.36",
   "jdapp;iPhone;10.0.2;14.3;network/4g;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1",
   "jdapp;android;10.0.2;9;network/4g;Mozilla/5.0 (Linux; Android 9; Mi Note 3 Build/PKQ1.181007.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/66.0.3359.126 MQQBrowser/6.2 TBS/045131 Mobile Safari/537.36",
@@ -42,10 +45,10 @@ const USER_AGENTS = [
  * @param {number} min 最小值（包含）
  * @param {number} max 最大值（不包含）
  */
-function randomNumber(min = 0, max = 100) {
+function randomNumber(min = 0, max = 3) {
   return Math.min(Math.floor(min + Math.random() * (max - min)), max);
 }
-const USER_AGENT = USER_AGENTS[0];
+const USER_AGENT = USER_AGENTS[randomNumber(0, USER_AGENTS.length)];
 
 module.exports = {
   USER_AGENT
